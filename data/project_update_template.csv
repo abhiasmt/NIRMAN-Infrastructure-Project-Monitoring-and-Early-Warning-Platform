@@ -1,0 +1,6 @@
+project_code,project_name,physical_progress_pct,expected_progress_pct,revised_cost_cr,expenditure_incurred_cr,land_acquisition_pct,clearance_status,months_of_delay,last_updated_date
+NH-3001,NH Corridor Package-3,38.5,65,645,238,72,Partial,6,2026-08-30
+PW-3002,Thermal Plant Unit-2,58,65,1020,596,90,Approved,18,2026-09-05
+RA-3003,Railway Electrification Phase-4,82,80,420,332,100,Approved,0,2026-09-12
+WA-2004,"Canal Network Unit-5, Indore",98.6,99,1723,1706,96,Partial,2,2026-08-24
+PE-2005,"Refinery Unit Package-4, Nizamabad",100,99,2784,2756,99,Partial,2,2026-09-12

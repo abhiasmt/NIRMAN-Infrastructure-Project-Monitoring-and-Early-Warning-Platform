@@ -1,0 +1,58 @@
+{
+  "model_version": "v1.3.0",
+  "algorithm": "RandomForest + isotonic calibration",
+  "seed_projects": 400,
+  "training_rows": 3000,
+  "features": [
+    "cost_overrun_ratio",
+    "progress_gap",
+    "progress_vs_time_ratio",
+    "schedule_slippage_ratio",
+    "slip_excess",
+    "expenditure_ratio",
+    "milestone_delay_ratio",
+    "land_gap",
+    "clearance_penalty",
+    "months_of_delay"
+  ],
+  "metrics": {
+    "delay": {
+      "roc_auc": 0.7997,
+      "precision": 0.7963,
+      "recall": 0.5358,
+      "f1": 0.6406,
+      "brier": 0.1743
+    },
+    "cost": {
+      "roc_auc": 0.7362,
+      "precision": 0.7796,
+      "recall": 0.4503,
+      "f1": 0.5709,
+      "brier": 0.1938
+    }
+  },
+  "delay_feature_importance": {
+    "progress_gap": 0.1707,
+    "milestone_delay_ratio": 0.1552,
+    "cost_overrun_ratio": 0.1204,
+    "progress_vs_time_ratio": 0.1185,
+    "slip_excess": 0.1097,
+    "land_gap": 0.0924,
+    "schedule_slippage_ratio": 0.0832,
+    "expenditure_ratio": 0.057,
+    "months_of_delay": 0.0563,
+    "clearance_penalty": 0.0365
+  },
+  "cost_feature_importance": {
+    "progress_gap": 0.1616,
+    "cost_overrun_ratio": 0.141,
+    "milestone_delay_ratio": 0.1359,
+    "progress_vs_time_ratio": 0.1317,
+    "slip_excess": 0.0991,
+    "land_gap": 0.0889,
+    "schedule_slippage_ratio": 0.0887,
+    "expenditure_ratio": 0.0688,
+    "months_of_delay": 0.0499,
+    "clearance_penalty": 0.0342
+  }
+}

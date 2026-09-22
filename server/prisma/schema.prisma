@@ -1,0 +1,273 @@
+
+ // NIRMAN — Prisma schema
+ // Synthetic CUF-like infrastructure project monitoring store.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MOSPI_OFFICER
+  MINISTRY_OFFICER
+  AGENCY_OFFICER
+  ANALYST
+  VIEWER
+}
+
+enum RiskLevel {
+  Low
+  Medium
+  High
+  Critical
+}
+
+enum ClearanceStatus {
+  Approved
+  Partial
+  Pending
+}
+
+enum AlertStatus {
+  Open
+  Acknowledged
+  Resolved
+}
+
+enum InterventionStatus {
+  Open
+  InProgress
+  Completed
+  Cancelled
+}
+
+enum MilestoneStatus {
+  Planned
+  InProgress
+  Completed
+  Delayed
+}
+
+model User {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  name           String
+  passwordHash   String
+  role           Role     @default(VIEWER)
+  ministryId     String?
+  agencyId       String?
+  isActive       Boolean  @default(true)
+  ministry       Ministry?           @relation(fields: [ministryId], references: [id])
+  agency         ImplementingAgency? @relation(fields: [agencyId], references: [id])
+  alerts         Alert[]             @relation("AlertAssignee")
+  interventions  Intervention[]
+  auditLogs      AuditLog[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Ministry {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  shortName String?
+  projects  Project[]
+  users     User[]
+  agencies  ImplementingAgency[]
+  createdAt DateTime @default(now())
+}
+
+model ImplementingAgency {
+  id         String   @id @default(cuid())
+  name       String   @unique
+  ministryId String?
+  ministry   Ministry? @relation(fields: [ministryId], references: [id])
+  projects   Project[]
+  users      User[]
+  createdAt  DateTime @default(now())
+}
+
+model Project {
+  id          String  @id @default(cuid())
+  projectCode String  @unique
+  projectName String
+  description String?
+
+  ministryId String
+  agencyId   String
+  ministry   Ministry           @relation(fields: [ministryId], references: [id])
+  agency     ImplementingAgency @relation(fields: [agencyId], references: [id])
+
+  sector    String
+  subSector String?
+  state     String
+  district  String?
+
+  sanctionedCostCr      Float
+  revisedCostCr         Float?
+  expenditureIncurredCr Float   @default(0)
+  fundingType           String?
+
+  originalStartDate      DateTime?
+  actualStartDate        DateTime?
+  originalCompletionDate DateTime?
+  revisedCompletionDate  DateTime?
+  actualCompletionDate   DateTime?
+
+  physicalProgressPct Float  @default(0)
+  expectedProgressPct Float  @default(0)
+  currentStatus       String @default("On Schedule")
+
+  landAcquisitionPct Float           @default(100)
+  clearanceStatus    ClearanceStatus @default(Approved)
+  contractType       String?
+  contractorName     String?
+
+  delayReasonPrimary   String?
+  delayReasonSecondary String?
+  monthsOfDelay        Int     @default(0)
+
+  lastUpdatedDate DateTime @default(now())
+  dataSource      String   @default("Synthetic CUF-like seed")
+
+  milestones    Milestone[]
+  updates       ProjectUpdate[]
+  predictions   RiskPrediction[]
+  alerts        Alert[]
+  interventions Intervention[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([sector])
+  @@index([state])
+  @@index([ministryId])
+}
+
+model Milestone {
+  id          String          @id @default(cuid())
+  projectId   String
+  project     Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  name        String
+  plannedDate DateTime
+  actualDate  DateTime?
+  status      MilestoneStatus @default(Planned)
+  createdAt   DateTime        @default(now())
+
+  @@index([projectId])
+}
+
+model ProjectUpdate {
+  id                    String   @id @default(cuid())
+  projectId             String
+  project               Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  reportingDate         DateTime
+  physicalProgressPct   Float
+  expenditureIncurredCr Float?
+  remark                String?
+  submittedBy           String?
+  createdAt             DateTime @default(now())
+
+  @@index([projectId])
+}
+
+model RiskPrediction {
+  id              String   @id @default(cuid())
+  projectId       String
+  project         Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  modelVersion    String
+  predictionDate  DateTime @default(now())
+
+  delayProbability           Float
+  costOverrunProbability     Float
+  estimatedDelayMonthsMin    Int?
+  estimatedDelayMonthsMax    Int?
+  estimatedCostOverrunPctMin Int?
+  estimatedCostOverrunPctMax Int?
+
+  overallRiskScore Int
+  riskLevel        RiskLevel
+
+  topRiskDriversJson       Json?
+  suggestedReviewFocusJson Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([projectId, predictionDate])
+}
+
+model Alert {
+  id             String      @id @default(cuid())
+  projectId      String
+  project        Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  type           String
+  severity       RiskLevel
+  message        String
+  status         AlertStatus @default(Open)
+  assignedToId   String?
+  assignedTo     User?       @relation("AlertAssignee", fields: [assignedToId], references: [id])
+  acknowledgedAt DateTime?
+  resolvedAt     DateTime?
+  createdAt      DateTime    @default(now())
+
+  @@index([projectId])
+  @@index([status, severity])
+}
+
+model Intervention {
+  id                String             @id @default(cuid())
+  projectId         String
+  project           Project            @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  type              String
+  description       String
+  assignedAuthority String
+  dueDate           DateTime?
+  status            InterventionStatus @default(Open)
+  outcomeNotes      String?
+  createdById       String?
+  createdBy         User?              @relation(fields: [createdById], references: [id])
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  @@index([projectId])
+}
+
+model UploadLog {
+  id           String   @id @default(cuid())
+  filename     String
+  uploadedById String?
+  totalRows    Int
+  importedRows Int
+  rejectedRows Int
+  warnings     Int      @default(0)
+  errorsJson   Json?
+  createdAt    DateTime @default(now())
+}
+
+model ModelRegistry {
+  id                    String   @id @default(cuid())
+  version               String   @unique
+  algorithm             String
+  trainedAt             DateTime @default(now())
+  metricsJson           Json?
+  featureImportanceJson Json?
+  isActive              Boolean  @default(false)
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  action     String
+  entityType String
+  entityId   String?
+  detailJson Json?
+  ipAddress  String?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NIRMAN — AI-Powered Infrastructure Project Monitoring and Early-Warning Platform</title>
+<meta name="description" content="NIRMAN predicts delay and cost-overrun risk for Central Sector infrastructure projects, explains why a project is at risk, and helps officers prioritise intervention.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<nav class="lp-nav"><div class="lp">
+  <div class="lp-brand">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18"/><path d="M6 18V9"/><path d="M10 18V9"/><path d="M14 18V9"/><path d="M18 18V9"/><path d="m2 9 10-6 10 6"/></svg>
+    <div><div class="lp-brand-name">NIRMAN</div><div class="lp-brand-sub">Infrastructure Intelligence</div></div>
+  </div>
+  <div class="lp-nav-links">
+    <a href="#how">How it works</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#explainability">Explainability</a>
+    <a href="#architecture">Architecture</a>
+    <a class="cta" href="app.html">Officer Login</a>
+  </div>
+</div></nav>
+
+<!-- ============================ 1. Hero ============================ -->
+<section class="hero"><div class="lp"><div class="hero-grid">
+  <div>
+    <div class="eyebrow">Ministry of Statistics &amp; Programme Implementation · Problem Statement SIH26103</div>
+    <h1 class="h1">Predict Infrastructure Risk Before It Becomes a Crisis.</h1>
+    <p class="lead">NIRMAN is an AI-powered decision-support platform that helps MoSPI/IPMD-style officers
+      identify delay and cost-overrun risks, understand why projects are at risk, and prioritise timely
+      intervention.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="app.html">Explore Platform</a>
+      <a class="btn btn-lg" href="app.html">Officer Login</a>
+    </div>
+    <p class="small muted" style="margin-top:16px">Predict. Prioritise. Prevent.</p>
+  </div>
+
+  <div class="mock" role="img" aria-label="Preview of the NIRMAN portfolio dashboard">
+    <div class="mock-bar"><i class="mock-dot"></i><i class="mock-dot"></i><i class="mock-dot"></i>
+      <span class="mock-title">NIRMAN — Portfolio Overview</span></div>
+    <div class="mock-body">
+      <div class="mock-h">Portfolio Risk Summary</div>
+      <div class="mock-kpis">
+        <div class="mock-kpi"><div class="l">Total Projects</div><div class="v">420</div></div>
+        <div class="mock-kpi"><div class="l">High Risk</div><div class="v" style="color:var(--high)">58</div></div>
+        <div class="mock-kpi"><div class="l">Medium Risk</div><div class="v" style="color:var(--med)">112</div></div>
+        <div class="mock-kpi"><div class="l">Low Risk</div><div class="v" style="color:var(--low)">250</div></div>
+      </div>
+      <div class="mock-alert">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span class="n">NH Corridor Package-3</span>
+          <span class="badge b-high" style="margin-left:auto"><i class="dot"></i>High Risk</span>
+        </div>
+        <div class="m">Overall Risk: 82/100 · Roads &amp; Highways · Assam</div>
+      </div>
+      <div class="mock-bars">
+        <div class="bar-row"><div class="bar-label">Roads &amp; Highways</div>
+          <div class="bar-track"><i class="bar-fill" style="width:88%"></i></div><div class="bar-val">21</div></div>
+        <div class="bar-row"><div class="bar-label">Urban Development</div>
+          <div class="bar-track"><i class="bar-fill" style="width:62%"></i></div><div class="bar-val">15</div></div>
+        <div class="bar-row"><div class="bar-label">Power</div>
+          <div class="bar-track"><i class="bar-fill" style="width:45%"></i></div><div class="bar-val">11</div></div>
+        <div class="bar-row"><div class="bar-label">Railways</div>
+          <div class="bar-track"><i class="bar-fill" style="width:33%"></i></div><div class="bar-val">8</div></div>
+      </div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- ======================= 2. Problem context ======================= -->
+<section><div class="lp">
+  <div class="sec-head">
+    <h2 class="h2">From Reactive Reporting to Proactive Intervention</h2>
+    <p class="lead">Periodic returns tell an officer what has already happened. The harder question — which
+      project will slip next, and why — is left to manual judgement across hundreds of records.</p>
+  </div>
+  <div class="cards-3">
+    <div class="lp-card">
+      <div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Late Identification</h3>
+      <p>Delays and cost escalations may be visible only after major project slippage.</p>
+    </div>
+    <div class="lp-card">
+      <div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M6 12h12"/><path d="M10 18h4"/></svg></div>
+      <h3>Manual Prioritisation</h3>
+      <p>Officers may need to review many project records to identify urgent cases.</p>
+    </div>
+    <div class="lp-card">
+      <div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.9-3.9"/><path d="M11 8v3"/><path d="M11 14h.01"/></svg></div>
+      <h3>Limited Root-Cause Visibility</h3>
+      <p>A status report may show a delay but not the data-backed factors driving future risk.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ======================== 3. How it works ======================== -->
+<section id="how"><div class="lp">
+  <div class="sec-head">
+    <h2 class="h2">Turning Project Updates into Actionable Early Warnings</h2>
+    <p class="lead">Every periodic return moves through the same six steps, so a risk score can always be traced
+      back to the data that produced it.</p>
+  </div>
+  <div class="flow">
+    <div class="flow-step"><b>CUF-like Project Data</b><span>Periodic returns from implementing agencies</span></div>
+    <i class="flow-arrow"></i>
+    <div class="flow-step"><b>Validation and Feature Engineering</b><span>Progress gap, cost ratio, slippage</span></div>
+    <i class="flow-arrow"></i>
+    <div class="flow-step"><b>AI Risk Prediction</b><span>Delay and cost-overrun probability</span></div>
+    <i class="flow-arrow"></i>
+    <div class="flow-step"><b>Explainable Risk Drivers</b><span>Project-specific contributing factors</span></div>
+    <i class="flow-arrow"></i>
+    <div class="flow-step"><b>Risk-Ranked Dashboard</b><span>Portfolio view with early-warning alerts</span></div>
+    <i class="flow-arrow"></i>
+    <div class="flow-step"><b>Officer Review and Intervention</b><span>Action recorded and tracked to closure</span></div>
+  </div>
+</div></section>
+
+<!-- ======================= 4. Key capabilities ======================= -->
+<section id="capabilities"><div class="lp">
+  <div class="sec-head"><h2 class="h2">Key Capabilities</h2>
+    <p class="lead">Six functions that together move monitoring from a record of the past to a view of what
+      needs attention next.</p></div>
+  <div class="cards-3">
+    <div class="lp-card"><div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Delay Risk Prediction</h3><p>Predicts the likelihood of schedule slippage.</p></div>
+    <div class="lp-card"><div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>Cost-Overrun Risk Detection</h3><p>Flags projects likely to exceed approved costs.</p></div>
+    <div class="lp-card"><div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+      <h3>Explainable AI</h3><p>Shows project-specific factors behind every risk score.</p></div>
+    <div class="lp-card"><div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13"/><path d="M3 12h9"/><path d="M3 18h5"/><path d="m18 9 3 3-3 3"/></svg></div>
+      <h3>Risk-Based Prioritisation</h3><p>Ranks projects for focused reviews and interventions.</p></div>
+    <div class="lp-card"><div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="4" width="3" height="14"/></svg></div>
+      <h3>Portfolio Visibility</h3><p>Analyses risk across ministries, sectors, states, and agencies.</p></div>
+    <div class="lp-card"><div class="ic-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
+      <h3>Continuous Monitoring</h3><p>Refreshes risk scores as new project updates arrive.</p></div>
+  </div>
+</div></section>
+
+<!-- ==================== 5. Explainability showcase ==================== -->
+<section id="explainability"><div class="lp"><div class="xai">
+  <div>
+    <h2 class="h2">A Risk Score Is Not Enough. NIRMAN Explains Why.</h2>
+    <p class="lead">A number on its own cannot be acted on or defended in a review meeting. Every prediction
+      carries the project-specific factors that produced it and a suggested focus for the officer's review —
+      so the officer, not the model, decides what happens next.</p>
+    <p class="lead">Scores are presented as risk probability and early-warning indicators. They are decision
+      support, not a forecast of a certain outcome.</p>
+  </div>
+  <div class="xai-card">
+    <div style="display:flex;align-items:center;gap:10px">
+      <b style="font-size:15px">NH Corridor Package-3</b>
+      <span class="badge b-high" style="margin-left:auto"><i class="dot"></i>High</span>
+    </div>
+    <div class="xai-score"><b>82</b><span class="muted">/100 overall risk</span></div>
+    <ul class="xai-drivers">
+      <li class="hi"><b>Physical Progress Gap</b>Physical progress is 38.5% against an expected 65%.</li>
+      <li class="hi"><b>Cost Revision</b>Revised cost is 24% above the sanctioned cost.</li>
+      <li><b>Land Acquisition</b>Land acquisition is 72% complete.</li>
+      <li><b>Milestone Delay</b>Two key milestones are behind their planned dates.</li>
+    </ul>
+    <div class="xai-focus">
+      <div class="l">Suggested Review Focus</div>
+      <p class="small muted">Expedite land acquisition coordination and review contractor performance against
+        the current execution plan.</p>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- ======================= 6. Intended impact ======================= -->
+<section><div class="lp">
+  <div class="sec-head"><h2 class="h2">Designed for Smarter Infrastructure Governance</h2>
+    <p class="lead">What the platform is built to change in the monitoring cycle.</p></div>
+  <div class="cards-4">
+    <div class="impact"><b>Earlier Risk Identification</b>
+      <p>Risk indicators surface as returns arrive, rather than after visible slippage.</p></div>
+    <div class="impact"><b>Focused Project Reviews</b>
+      <p>Review effort concentrates on the projects ranked highest by risk score.</p></div>
+    <div class="impact"><b>Transparent Decision Support</b>
+      <p>Each score carries its drivers, so recommendations can be examined and challenged.</p></div>
+    <div class="impact"><b>Timely Infrastructure Delivery</b>
+      <p>Interventions are assigned, tracked and closed within the same monitoring loop.</p></div>
+  </div>
+</div></section>
+
+<!-- ====================== 7. System architecture ====================== -->
+<section id="architecture"><div class="lp">
+  <div class="sec-head"><h2 class="h2">Built for Secure, Scalable Decision Support</h2>
+    <p class="lead">A service-separated architecture: the model never talks to the browser directly, and the
+      data layer stays behind an authenticated API with role-based access control.</p></div>
+  <div class="arch">
+    <div class="arch-node">Synthetic CUF-like Data / Authorised PAIMANA Data</div>
+    <i class="flow-arrow"></i>
+    <div class="arch-node">Node.js + Express APIs</div>
+    <i class="flow-arrow"></i>
+    <div class="arch-node">PostgreSQL Project Store</div>
+    <i class="flow-arrow"></i>
+    <div class="arch-node">Python ML Risk Engine</div>
+    <i class="flow-arrow"></i>
+    <div class="arch-node">React Dashboard and Alerts</div>
+  </div>
+  <div class="stack-row">
+    <span class="stack-pill">React</span><span class="stack-pill">Node.js</span><span class="stack-pill">Express</span>
+    <span class="stack-pill">PostgreSQL</span><span class="stack-pill">Python</span><span class="stack-pill">XGBoost</span>
+    <span class="stack-pill">SHAP</span><span class="stack-pill">Docker</span>
+  </div>
+  <div class="disclosure">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 17px;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Demo uses synthetic CUF-like project data. Production deployment requires authorised PAIMANA/OCMS
+      integration, encryption at rest, government SSO and data-governance approval.</span>
+  </div>
+</div></section>
+
+<!-- ============================ 8. Footer ============================ -->
+<footer class="lp-foot"><div class="lp">
+  <div>
+    <div class="fname">NIRMAN</div>
+    <div class="ftag">AI-Powered Infrastructure Project Monitoring and Early-Warning Platform</div>
+    <p class="fnote" style="margin-top:20px">Demo uses synthetic CUF-like project data.<br>
+      Production deployment requires authorised PAIMANA/OCMS integration.</p>
+  </div>
+  <div class="flinks">
+    <a href="app.html">Officer Login</a>
+    <a href="#how">How it works</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#architecture">Architecture</a>
+  </div>
+</div>
+<div class="lp"><div class="fbar">© 2026 NIRMAN Prototype · Smart India Hackathon 2026 · Problem Statement SIH26103 ·
+  Ministry of Statistics &amp; Programme Implementation</div></div>
+</footer>
+
+</body>
+</html>
