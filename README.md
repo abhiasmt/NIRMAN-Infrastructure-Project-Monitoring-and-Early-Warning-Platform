@@ -70,11 +70,11 @@ NIRMAN addresses three gaps: **late identification**, **manual prioritisation**,
         +-------------------------------------------------------+
 ```
 
-## 5. Tech stack
+## 5. Tech stack (Prototype Only)
 
 | Layer | Technology |
 |---|---|
-| Frontend | HTML, CSS, vanilla JS (no build step), Inter, hand-rolled SVG charts (Prototype Only - for MVP we will use rwact)|
+| Frontend | HTML, CSS, vanilla JS (no build step), Inter, hand-rolled SVG charts (Prototype Only - for MVP we will use react)|
 | API | Node.js, Express, JWT, bcrypt, Zod, Multer, node-cron, Swagger UI |
 | Database | PostgreSQL 16, Prisma ORM |
 | ML service | Python 3.11, FastAPI, pandas, NumPy, scikit-learn, XGBoost (optional), SHAP (optional), joblib |
