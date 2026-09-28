@@ -74,13 +74,13 @@ NIRMAN addresses three gaps: **late identification**, **manual prioritisation**,
 
 | Layer | Technology |
 |---|---|
-| Frontend | HTML, CSS, vanilla JS (no build step), Inter, hand-rolled SVG charts |
+| Frontend | HTML, CSS, vanilla JS (no build step), Inter, hand-rolled SVG charts (Prototype Only - for MVP we will use rwact)|
 | API | Node.js, Express, JWT, bcrypt, Zod, Multer, node-cron, Swagger UI |
 | Database | PostgreSQL 16, Prisma ORM |
 | ML service | Python 3.11, FastAPI, pandas, NumPy, scikit-learn, XGBoost (optional), SHAP (optional), joblib |
 | Deployment | Docker, Docker Compose |
 
-## 6. Folder structure
+## 6. Folder structure (Prototype/Demo only) 
 
 ```
 nirman/
